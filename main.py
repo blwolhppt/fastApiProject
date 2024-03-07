@@ -57,24 +57,24 @@ async def analyze_stat(name_device: str, start_date: Optional[datetime] = None,
 
     return {
         "statistics": [stat.__dict__ for stat in statistics],
-        "X_min": min([stat.x for stat in statistics]),
-        "X_max": max([stat.x for stat in statistics]),
-        "X_count": len([stat.x for stat in statistics]),
-        "X_sum": sum([stat.x for stat in statistics]),
-        "X_median": sorted([stat.x for stat in statistics])[len([
+        "X_минимальное": min([stat.x for stat in statistics]),
+        "X_максимальное": max([stat.x for stat in statistics]),
+        "X_кол-во": len([stat.x for stat in statistics]),
+        "X_сумма": sum([stat.x for stat in statistics]),
+        "X_медиана": sorted([stat.x for stat in statistics])[len([
             stat.x for stat in statistics]) // 2],
 
-        "Y_min": min([stat.y for stat in statistics]),
-        "Y_max": max([stat.y for stat in statistics]),
-        "Y_count": len([stat.y for stat in statistics]),
-        "Y_sum": sum([stat.y for stat in statistics]),
-        "Y_median": sorted([stat.y for stat in statistics])[len(
+        "Y_минимальное": min([stat.y for stat in statistics]),
+        "Y_максимальное": max([stat.y for stat in statistics]),
+        "Y_кол-во": len([stat.y for stat in statistics]),
+        "Y_сумма": sum([stat.y for stat in statistics]),
+        "Y_медиана": sorted([stat.y for stat in statistics])[len(
             [stat.y for stat in statistics]) // 2],
 
-        "Z_min": min([stat.z for stat in statistics]),
-        "Z_max": max([stat.z for stat in statistics]),
-        "Z_count": len([stat.z for stat in statistics]),
-        "Z_sum": sum([stat.z for stat in statistics]),
-        "Z_median": sorted([stat.z for stat in statistics])[len(
+        "Z_минимальное": min([stat.z for stat in statistics]),
+        "Z_максимальное": max([stat.z for stat in statistics]),
+        "Z_кол-во": len([stat.z for stat in statistics]),
+        "Z_сумма": sum([stat.z for stat in statistics]),
+        "Z_медиана": sorted([stat.z for stat in statistics])[len(
             [stat.z for stat in statistics]) // 2],
     }
