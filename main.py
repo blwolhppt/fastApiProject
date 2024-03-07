@@ -1,20 +1,22 @@
+from datetime import datetime
+
 from fastapi import FastAPI
 from typing import Optional
-from datetime import datetime
 from pydantic import BaseModel
+
 from sqlalchemy import create_engine, Column, DateTime, Float, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-app = FastAPI()
 
+app = FastAPI()
 Base = declarative_base()
 
 
 class MyDB(Base):
     __tablename__ = "db"
-    id = Column(Integer, primary_key=True, index=True)
-    name_device = Column(String, index=True)
+    id = Column(Integer, primary_key=True)
+    name_device = Column(String)
     timestamp = Column(DateTime, default=datetime.utcnow)
     x = Column(Float)
     y = Column(Float)

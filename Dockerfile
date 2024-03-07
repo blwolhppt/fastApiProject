@@ -1,17 +1,13 @@
-FROM python:3.9
+FROM python:3.8
 
 WORKDIR /app
 
-COPY requirements.txt .
-
+COPY requirements.txt /app/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY . /app/
 
-ENV DATABASE_URL="sqlite:///./db.db"
-ENV PORT=8000
+EXPOSE 8000
 
-EXPOSE ${PORT}
-
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0:${PORT}", "main:app"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
